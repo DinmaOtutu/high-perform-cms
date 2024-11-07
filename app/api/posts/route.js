@@ -37,12 +37,12 @@ export async function GET(req) {
   });
 }
 
-// for prisma optimize
-export async function GET(req) {
-  const posts = await prisma.post.findMany({ take: 10, select: { id: true, title: true } , cacheStrategy: { ttl: 3600 },})
-  return new Response(JSON.stringify(posts), {
-    headers: { 'Content-Type': 'application/json' },
-  });
-}
+// uncomment and use this for prisma optimize instead
+// export async function GET(req) {
+  //const posts = await prisma.post.findMany({ take: 10, select: { id: true, title: true } , cacheStrategy: { ttl: 3600 },})
+  //return new Response(JSON.stringify(posts), {
+ //   headers: { 'Content-Type': 'application/json' },
+ // });
+//}
 
 
